@@ -31,7 +31,7 @@ export const GET_handler: RouteHandlerMethod = async (request, reply) => {
   }
 
   reply.status(400).send({
-    type: 'NOT_FOUND_ERROR',
+    type: 'USER_NOT_FOUND_ERROR',
     msg: 'User not found',
     error: 'user is not added to database',
   });
