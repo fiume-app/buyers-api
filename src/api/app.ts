@@ -1,8 +1,8 @@
-import Ajv from "ajv";
+import Ajv from 'ajv';
 import addFormats from 'ajv-formats';
-import fastify from "fastify";
+import fastify from 'fastify';
 import { applicationDefault, initializeApp } from 'firebase-admin/app';
-import { v1 } from "./v1";
+import { v1 } from './v1';
 
 initializeApp({
   credential: applicationDefault(),

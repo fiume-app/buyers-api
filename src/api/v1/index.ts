@@ -1,5 +1,5 @@
-import { FastifyPluginAsync } from "fastify";
-import { verify_firebase_id_token } from "./plugins/verify_firebase_id_token";
+import { FastifyPluginAsync } from 'fastify';
+import { verify_firebase_id_token } from './plugins/verify_firebase_id_token';
 
 import * as index from './routes';
 
@@ -19,4 +19,4 @@ export const v1: FastifyPluginAsync = async (instance, _opts) => {
     preHandler: verify_firebase_id_token,
     handler: index.POST_handler,
   });
-}
+};

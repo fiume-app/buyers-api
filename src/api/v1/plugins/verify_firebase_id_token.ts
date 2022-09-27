@@ -1,4 +1,4 @@
-import { preHandlerHookHandler } from "fastify";
+import { preHandlerHookHandler } from 'fastify';
 import { getAuth } from 'firebase-admin/auth';
 
 export const verify_firebase_id_token: preHandlerHookHandler = async (request, reply) => {
@@ -16,11 +16,11 @@ export const verify_firebase_id_token: preHandlerHookHandler = async (request, r
   }
 
   try {
-    const decodedToken = await getAuth()
-      .verifyIdToken(token_from_header)
+    const decoded_token = await getAuth()
+      .verifyIdToken(token_from_header);
 
     // @ts-ignore
-    request.decodedToken = decodedToken;
+    request.decodedtoken = decoded_token;
 
     return;
   } catch (e) {
@@ -31,6 +31,5 @@ export const verify_firebase_id_token: preHandlerHookHandler = async (request, r
         msg: 'Unable to Authorize request',
         error: e,
       });
-    return;
   }
-}
+};

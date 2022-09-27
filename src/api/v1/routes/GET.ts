@@ -1,19 +1,19 @@
-import { RouteHandlerMethod } from "fastify";
-import { DecodedIdToken } from "firebase-admin/auth";
-import { LeanDocument } from "mongoose";
-import { buyers } from "../../../db/buyers";
-import { BUYERS_SCHEMA } from "../../../db/buyers/types";
+import { RouteHandlerMethod } from 'fastify';
+import { DecodedIdToken } from 'firebase-admin/auth';
+import { LeanDocument } from 'mongoose';
+import { buyers } from '../../../db/buyers';
+import { BUYERS_SCHEMA } from '../../../db/buyers/types';
 
 export const GET_handler: RouteHandlerMethod = async (request, reply) => {
   // @ts-ignore
-  const decodedToken = request.decodedToken as DecodedIdToken
+  const decoded_token = request.decoded_token as DecodedIdToken;
 
   let fetch_res: LeanDocument<BUYERS_SCHEMA & { _id: any }> | null;
 
   try {
     fetch_res = await buyers
       .findOne({
-        email: decodedToken.email,
+        email: decoded_token.email,
       })
       .lean();
   } catch (e) {
@@ -35,4 +35,4 @@ export const GET_handler: RouteHandlerMethod = async (request, reply) => {
     msg: 'User not found',
     error: 'user is not added to database',
   });
-}
+};

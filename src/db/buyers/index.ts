@@ -1,6 +1,6 @@
-import { Schema, SchemaTypes } from "mongoose";
-import { db } from "../config";
-import { BUYERS_SCHEMA } from "./types";
+import { Schema, SchemaTypes } from 'mongoose';
+import { db } from '../config';
+import { BUYERS_SCHEMA } from './types';
 
 const buyers_schema = new Schema<BUYERS_SCHEMA>({
   name: {
