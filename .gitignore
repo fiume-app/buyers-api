@@ -128,3 +128,6 @@ dist
 
 # Ignore Firebase Credentials
 firebase-credentials.json
+
+# Ignore Build Files
+build
