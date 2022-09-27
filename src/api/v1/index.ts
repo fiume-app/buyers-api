@@ -4,7 +4,7 @@ import { verify_firebase_id_token } from './plugins/verify_firebase_id_token';
 import * as index from './routes';
 
 export const v1: FastifyPluginAsync = async (instance, _opts) => {
-  instance.decorateRequest('decodedToken', null);
+  instance.decorateRequest('decoded_token', null);
 
   instance.route({
     url: '/',

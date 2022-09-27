@@ -20,7 +20,7 @@ export const verify_firebase_id_token: preHandlerHookHandler = async (request, r
       .verifyIdToken(token_from_header);
 
     // @ts-ignore
-    request.decodedtoken = decoded_token;
+    request.decoded_token = decoded_token;
 
     return;
   } catch (e) {
