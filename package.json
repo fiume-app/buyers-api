@@ -7,7 +7,9 @@
     "dev-watch": "DOTENV_CONFIG_PATH=dev.env nodemon -r dotenv/config --watch src --exec 'ts-node' scripts/local.ts",
     "types-check": "tsc --noEmit",
     "lint": "eslint src --ext .ts",
-    "lint-fix": "eslint src --ext .ts --fix"
+    "lint-fix": "eslint src --ext .ts --fix",
+    "build": "esbuild scripts/local.ts --bundle --platform=node --target=node14.0 --outfile=build/output.js",
+    "start": "DOTENV_CONFIG_PATH=dev.env node -r dotenv/config build/output.js"
   },
   "repository": {
     "type": "git",
@@ -23,6 +25,7 @@
     "@typescript-eslint/eslint-plugin": "^5.38.1",
     "@typescript-eslint/parser": "^5.38.1",
     "dotenv": "^16.0.2",
+    "esbuild": "^0.15.9",
     "eslint": "^8.24.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-airbnb-typescript": "^17.0.0",
